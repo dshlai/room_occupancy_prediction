@@ -33,9 +33,16 @@
 
 - Data Imbalance
     - From class balance EDA it is clear there are some data imbalance between the two classes.
-    - I test several models with built-in sample balance and also re-sample the dataset with SMOTEENN algorithm.
-    - Best performing model is Balanced Bagging Classifier, perform close to in normal accuracy score and slight better than Logistic Regression in balanced accuracy score.
- 
+    - Several re-sampling methods and balanced models are evaluated. 
+    - Fitting ensemble models with balanced dataset and fitting with balanced model achieve similar balanced accuracy.
+    - Balanced dataset does not improve linear model like Logistic Regression
+    - Best performing model is Gradient Boosting Tree with SMOTEENN balanced dataset. 
+    - However, even the best balanced model only achieve similar performance to Logistic Regression
+
+- Train/Test Split
+    - I used a combined training dataset and test2 dataset for train/validation split. I make a combined set than use my own ratio for spliting.
+    - Use test dataset for final test scoring
+    
 - Preliminary Model Evaluations:
     - Logistic Regression:
         - Validation Accuracy: 0.9924
