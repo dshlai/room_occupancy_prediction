@@ -42,7 +42,12 @@
 - Train/Test Split
     - I used a combined training dataset and test2 dataset for train/validation split. I make a combined set than use my own ratio for spliting.
     - Use test dataset for final test scoring
-    
+
+- Model Complexity
+    - The original dataset contain only a few features, this is reason why Logistic Regression perform well on this dataset while other (more complex) models required many adjustment to perform as well. 
+    - Further feature engineering may improve the performance of the complex models.
+    - Original dataset is class imbalanced. Balanced dataset help more complex model achieve better performance.
+     
 - Preliminary Model Evaluations:
     - Logistic Regression:
         - Validation Accuracy: 0.9924
