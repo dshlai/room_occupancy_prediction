@@ -63,6 +63,7 @@ def load_test():
 
 
 def fit_model(train_x, train_y, model=None):
+
     if model == 'GBT':
         model_ = GradientBoostingClassifier(random_state=RANDOM_STATE)
 
@@ -156,12 +157,38 @@ def evaluate_model(model_str):
     return simple, imb_report
 
 
-if __name__ == "__main__":
-    help_str = "Select a model to evaluation, choices are: "
-    help_str += "\'Logistic\', \'GBT (Gradient Boost Tree)\', and \'RF (Random Forest)\'"
+def evaluate_models():
+    model_list = ['Logistic', 'RF', 'BalancedRF', 'GBT', 'BalancedGBT', 'SVC', 'BalancedSVC',
+                  'BalancedBag']
 
+    simple = pd.DataFrame()
+
+    imb_report = ""
+
+    for m_str in model_list:
+
+        line_break = "="*40
+        imb_report += "\n\n{} {} {}".format(line_break, m_str, line_break)
+
+        s, imb = evaluate_model(m_str)
+
+        simple = simple.append(s, ignore_index=True)
+        imb_report += "\n\n" + imb
+
+    simple.to_csv("simple_models_eval.csv", index=False)
+
+    with open("model_imbalance_report.txt", mode='w') as writer:
+        writer.write(imb_report)
+
+
+if __name__ == "__main__":
+
+    help_str = "Evaluate all models or select a model to evaluation"
     parser = argparse.ArgumentParser()
-    parser.add_argument("model", help=help_str)
+    parser.add_argument("model", nargs='?', help=help_str)
 
     args = parser.parse_args()
-    evaluate_model(args.model)
+    if args.model:
+        evaluate_model(args.model)
+    else:
+        evaluate_models()
