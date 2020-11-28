@@ -5,7 +5,7 @@ With proliferation of IOT devices with various kinds of environment sensors, we 
 Using UCI Room Occupancy dataset. I tried to see if I can build a model to accurately predict the occupancy of the room based on environment sensors.
 
 - [EDA notebook](https://github.com/dshlai/room_occupancy_prediction/blob/master/occupancy_prediction_eda.ipynb) 
-- [Visualation notebook](https://github.com/dshlai/room_occupancy_prediction/blob/master/prediction_visualzied.ipynb)
+- [Visualization notebook](https://github.com/dshlai/room_occupancy_prediction/blob/master/prediction_visualzied.ipynb)
 - [Class imbalance notebook](https://github.com/dshlai/room_occupancy_prediction/blob/master/imbalanced_model_evaluation.ipynb)
 
 ### References
